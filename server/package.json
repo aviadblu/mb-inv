@@ -1,0 +1,24 @@
+{
+  "name": "mb-inv-server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=prod forever -o out.log -e err.log dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^8.0.19",
+    "body-parser": "1.15.2",
+    "cloudinary": "^1.9.1",
+    "express": "4.14.0",
+    "forever": "^0.15.3",
+    "morgan": "^1.7.0",
+    "nodemailer": "^4.0.1",
+    "request": "^2.83.0",
+    "typescript": "~2.4.2",
+    "typings": "^2.1.0"
+  }
+}
