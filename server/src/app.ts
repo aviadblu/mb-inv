@@ -5,6 +5,7 @@ import * as bodyParser from "body-parser";
 import * as morgan from "morgan";
 import * as path from "path";
 import * as Router from "./routes/index";
+import * as adminClientsRouter from "./api/admin-clients/router";
 import * as contactRouter from "./api/contact/router";
 import * as generalRouter from "./api/general/router";
 
@@ -86,6 +87,7 @@ class Server {
         });
 
         //create routes
+        this.app.use("/api/admin-clients", new adminClientsRouter.Router().getRouter());
         this.app.use("/api/contact", new contactRouter.Router().getRouter());
         this.app.use("/api/g", new generalRouter.Router().getRouter());
         this.app.use("/", new Router.Home(this.app).getRouter());

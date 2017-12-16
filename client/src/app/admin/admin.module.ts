@@ -6,12 +6,16 @@ import {AdminNavbarComponent} from './admin-navbar/admin-navbar.component';
 import {AdminClientsComponent} from './admin-clients/admin-clients.component';
 import {AppRoutingModule} from "../app-routing.module";
 import {AddClientModalComponent} from './admin-clients/add-client-modal/add-client-modal.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AdminClientsService} from "./services/admin-clients.service";
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     AddClientModalComponent
@@ -23,7 +27,11 @@ import {AddClientModalComponent} from './admin-clients/add-client-modal/add-clie
     AddClientModalComponent],
   exports: [
     AdminMainComponent,
-    AdminClientsComponent]
+    AdminClientsComponent
+  ],
+  providers: [
+    AdminClientsService
+  ]
 })
 export class AdminModule {
 }

@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
 var Router = require("./routes/index");
+var adminClientsRouter = require("./api/admin-clients/router");
 var contactRouter = require("./api/contact/router");
 var generalRouter = require("./api/general/router");
 // todo split for production
@@ -70,6 +71,7 @@ var Server = (function () {
             }
         });
         //create routes
+        this.app.use("/api/admin-clients", new adminClientsRouter.Router().getRouter());
         this.app.use("/api/contact", new contactRouter.Router().getRouter());
         this.app.use("/api/g", new generalRouter.Router().getRouter());
         this.app.use("/", new Router.Home(this.app).getRouter());
